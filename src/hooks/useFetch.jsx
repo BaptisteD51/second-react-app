@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 function useFetch(url){
     const [data, setData] = useState(null)
     const [dataLoaded, setDataLoaded] = useState(false)
+    const [error, setError] = useState(false)
 
     useEffect(() => {
         const fetchData = async () => {
@@ -12,8 +13,10 @@ function useFetch(url){
                     throw new Error('Erreur lors du chargement des données')
                 }
                 const data = await response.json()
-                setData(data.surveyData)
+                console.log(data)
+                setData(data)
             } catch (err) {
+                setError(true)
                 console.log(err)
             } finally {
                 setDataLoaded(true)
@@ -24,5 +27,7 @@ function useFetch(url){
         fetchData()
     }, [])
 
-    return [data, dataLoaded]
+    return [data, dataLoaded, error]
 }
+
+export default useFetch

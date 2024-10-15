@@ -18,7 +18,7 @@ function RightFalse({question}) {
                 <input type="radio" name="answer" id="vrai" value="1"/><label htmlFor="answer">Oui</label>
             </p>
             <p>
-                <input type="radio" name="answer" id="faux" value="0" checked/><label htmlFor="answer">Non</label>
+                <input type="radio" name="answer" id="faux" value="0" defaultChecked/><label htmlFor="answer">Non</label>
             </p>
             <input type="submit" value="Enregistrer" className="py-1 px-4 bg-blue-600 text-white rounded-full"/>
         </form>
